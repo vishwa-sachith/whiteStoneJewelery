@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.UserLogin" table="user_login" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="idUserLogin" type="java.lang.Integer">
+            <column name="idUser_login" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="Pojos.User" fetch="select">
+            <column name="User_email" length="80" not-null="true" />
+        </many-to-one>
+        <property name="ipAddress" type="string">
+            <column name="Ip_address" length="100" />
+        </property>
+        <property name="inTime" type="timestamp">
+            <column name="In_time" length="0" />
+        </property>
+        <property name="outTime" type="timestamp">
+            <column name="Out_time" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Cart" table="cart" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="Pojos.User" fetch="select">
+            <column name="User_email" length="80" not-null="true" />
+        </many-to-one>
+        <set name="cartHasProducts" table="cart_has_product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cart_id" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.CartHasProduct" />
+        </set>
+    </class>
+</hibernate-mapping>

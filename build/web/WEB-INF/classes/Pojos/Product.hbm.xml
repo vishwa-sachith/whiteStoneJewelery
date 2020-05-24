@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Product" table="product" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="material" class="Pojos.Material" fetch="select">
+            <column name="Material_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="purity" class="Pojos.Purity" fetch="select">
+            <column name="Purity_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="type" class="Pojos.Type" fetch="select">
+            <column name="Type_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="weight" class="Pojos.Weight" fetch="select">
+            <column name="Weight_id" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="cost" type="java.lang.Integer">
+            <column name="cost" />
+        </property>
+        <property name="price" type="java.lang.Integer">
+            <column name="price" />
+        </property>
+        <property name="discount" type="java.lang.Integer">
+            <column name="discount" />
+        </property>
+        <property name="astimatedDate" type="date">
+            <column name="Astimated_date" length="0" />
+        </property>
+        <property name="dateCreated" type="date">
+            <column name="Date_created" length="0" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="Count" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="65535" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="45" />
+        </property>
+        <set name="imgs" table="img" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Item_id" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Img" />
+        </set>
+        <set name="productHasStones" table="product_has_stone" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Item_id" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.ProductHasStone" />
+        </set>
+        <set name="cartHasProducts" table="cart_has_product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Product_id" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.CartHasProduct" />
+        </set>
+        <set name="invoiceHasProducts" table="invoice_has_product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Product_id" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.InvoiceHasProduct" />
+        </set>
+        <set name="watchlists" table="watchlist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Product_id" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Watchlist" />
+        </set>
+    </class>
+</hibernate-mapping>

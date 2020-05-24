@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Interfaces" table="interfaces" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="idInterfaces" type="java.lang.Integer">
+            <column name="idInterfaces" />
+            <generator class="identity" />
+        </id>
+        <property name="uri" type="string">
+            <column name="uri" />
+        </property>
+        <property name="displayName" type="string">
+            <column name="display_name" length="45" />
+        </property>
+        <set name="privilageses" table="privilages" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Interfaces_idInterfaces" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Privilages" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.User" table="user" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="email" type="string">
+            <column name="email" length="80" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="userType" class="Pojos.UserType" fetch="select">
+            <column name="User_type_idUser_type" not-null="true" />
+        </many-to-one>
+        <property name="fname" type="string">
+            <column name="fname" length="45" />
+        </property>
+        <property name="lname" type="string">
+            <column name="lname" length="45" />
+        </property>
+        <property name="nic" type="java.lang.Integer">
+            <column name="nic" />
+        </property>
+        <property name="tp1" type="java.lang.Integer">
+            <column name="tp1" />
+        </property>
+        <property name="tp2" type="java.lang.Integer">
+            <column name="tp2" />
+        </property>
+        <property name="img" type="string">
+            <column name="img" length="65535" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="45" />
+        </property>
+        <property name="backupPin" type="string">
+            <column name="Backup_pin" length="45" />
+        </property>
+        <property name="wrongCount" type="java.lang.Integer">
+            <column name="Wrong_count" />
+        </property>
+        <set name="reviews" table="review" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_email" length="80" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Review" />
+        </set>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_email" length="80" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Cart" />
+        </set>
+        <set name="userLogins" table="user_login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_email" length="80" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.UserLogin" />
+        </set>
+        <set name="watchlists" table="watchlist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_email" length="80" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Watchlist" />
+        </set>
+        <set name="invoices" table="invoice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_email" length="80" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Invoice" />
+        </set>
+        <set name="userHasAddresses" table="user_has_address" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_email" length="80" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.UserHasAddress" />
+        </set>
+    </class>
+</hibernate-mapping>

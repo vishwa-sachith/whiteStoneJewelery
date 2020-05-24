@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="whitestonejwell"/>
+  <table-filter match-name="privilages"/>
+  <table-filter match-name="cart"/>
+  <table-filter match-name="user_login"/>
+  <table-filter match-name="img"/>
+  <table-filter match-name="puritymesurement"/>
+  <table-filter match-name="invoice"/>
+  <table-filter match-name="stone"/>
+  <table-filter match-name="user_has_address"/>
+  <table-filter match-name="product_has_stone"/>
+  <table-filter match-name="user_type"/>
+  <table-filter match-name="address"/>
+  <table-filter match-name="material"/>
+  <table-filter match-name="review"/>
+  <table-filter match-name="purity"/>
+  <table-filter match-name="type"/>
+  <table-filter match-name="watchlist"/>
+  <table-filter match-name="cart_has_product"/>
+  <table-filter match-name="count"/>
+  <table-filter match-name="weight"/>
+  <table-filter match-name="product"/>
+  <table-filter match-name="invoice_has_product"/>
+  <table-filter match-name="weightmesurement"/>
+  <table-filter match-name="div"/>
+  <table-filter match-name="interfaces"/>
+  <table-filter match-name="slideimages"/>
+  <table-filter match-name="user"/>
+</hibernate-reverse-engineering>

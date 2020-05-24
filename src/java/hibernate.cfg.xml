@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/whitestonejwell?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">1234</property>
+    <mapping resource="Pojos/Weight.hbm.xml"/>
+    <mapping resource="Pojos/Type.hbm.xml"/>
+    <mapping resource="Pojos/Cart.hbm.xml"/>
+    <mapping resource="Pojos/Interfaces.hbm.xml"/>
+    <mapping resource="Pojos/Review.hbm.xml"/>
+    <mapping resource="Pojos/Img.hbm.xml"/>
+    <mapping resource="Pojos/Purity.hbm.xml"/>
+    <mapping resource="Pojos/Material.hbm.xml"/>
+    <mapping resource="Pojos/Puritymesurement.hbm.xml"/>
+    <mapping resource="Pojos/Div.hbm.xml"/>
+    <mapping resource="Pojos/UserLogin.hbm.xml"/>
+    <mapping resource="Pojos/Watchlist.hbm.xml"/>
+    <mapping resource="Pojos/Invoice.hbm.xml"/>
+    <mapping resource="Pojos/Privilages.hbm.xml"/>
+    <mapping resource="Pojos/InvoiceHasProduct.hbm.xml"/>
+    <mapping resource="Pojos/ProductHasStone.hbm.xml"/>
+    <mapping resource="Pojos/CartHasProduct.hbm.xml"/>
+    <mapping resource="Pojos/Stone.hbm.xml"/>
+    <mapping resource="Pojos/Address.hbm.xml"/>
+    <mapping resource="Pojos/User.hbm.xml"/>
+    <mapping resource="Pojos/UserHasAddress.hbm.xml"/>
+    <mapping resource="Pojos/Weightmesurement.hbm.xml"/>
+    <mapping resource="Pojos/Slideimages.hbm.xml"/>
+    <mapping resource="Pojos/Product.hbm.xml"/>
+    <mapping resource="Pojos/Count.hbm.xml"/>
+    <mapping resource="Pojos/UserType.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

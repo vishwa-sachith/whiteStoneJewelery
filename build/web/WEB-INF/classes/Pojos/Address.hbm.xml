@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Address" table="address" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="idAddress" type="java.lang.Integer">
+            <column name="idAddress" />
+            <generator class="identity" />
+        </id>
+        <property name="no" type="string">
+            <column name="no" length="45" />
+        </property>
+        <property name="street" type="string">
+            <column name="street" length="45" />
+        </property>
+        <property name="add1" type="string">
+            <column name="add1" length="45" />
+        </property>
+        <property name="add2" type="string">
+            <column name="add2" length="45" />
+        </property>
+        <property name="province" type="string">
+            <column name="province" length="45" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="45" />
+        </property>
+        <set name="userHasAddresses" table="user_has_address" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Address_idAddress" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.UserHasAddress" />
+        </set>
+    </class>
+</hibernate-mapping>

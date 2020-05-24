@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.UserType" table="user_type" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="idUserType" type="java.lang.Integer">
+            <column name="idUser_type" />
+            <generator class="identity" />
+        </id>
+        <property name="type" type="string">
+            <column name="type" length="45" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_type_idUser_type" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.User" />
+        </set>
+        <set name="privilageses" table="privilages" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_type_idUser_type" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Privilages" />
+        </set>
+    </class>
+</hibernate-mapping>

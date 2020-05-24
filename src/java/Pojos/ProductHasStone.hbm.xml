@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 16, 2018 10:23:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.ProductHasStone" table="product_has_stone" catalog="whitestonejwell" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="product" class="Pojos.Product" fetch="select">
+            <column name="Item_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="purity" class="Pojos.Purity" fetch="select">
+            <column name="Purity_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stone" class="Pojos.Stone" fetch="select">
+            <column name="Stone_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="weight" class="Pojos.Weight" fetch="select">
+            <column name="Weight_id" not-null="true" />
+        </many-to-one>
+        <property name="count" type="java.lang.Integer">
+            <column name="Count" />
+        </property>
+    </class>
+</hibernate-mapping>
